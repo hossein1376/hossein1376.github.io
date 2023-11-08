@@ -5,20 +5,20 @@ tags: [nginx, certbot]
 ---
 
 Join me as we dive into what Nginx and TLS is, how to install Nginx and configure it and above all, how to use it to serve up our application.
-I assume you have a Linux server with root access, some limited knowledge with the Terminal, a domain you own and an application that is already running inside VPS.
+I assume you have a Linux server with root access, some knowledge with the Terminal, a domain you own and an application that is already running inside VPS.
 
 ## What is Nginx
 
-[Nginx](https://www.nginx.com) is a widely used web server which can act as load-balancer, reverse proxy, HTTP cache, mail server and much more. It's simple and fast, as well as highly customizable. It was originality developed in 2004, written in C and was published as free and open-source online.  
+[Nginx](https://www.nginx.com) is a widely used web server which can act as load-balancer, reverse proxy, HTTP cache, mail server and much more. It's simple and fast, as well as highly customizable. It was originality developed in 2004, written in C and was published as free and open-source.  
 Currently, Nginx is the most popular choice for web servers, followed closely by Apache. It supports variety of operating systems, all versions of HTTP, has great integration with other services, and it's super easy to get started with it.
 
 ## What is Reverse Proxy?
 
-Reverse Proxy is an application which is placed between your application and the internet, act as a middle man. Why would you want to do that, you ask? Well, it turns out that there are _many_ reasons for it. They increase scalability, help with performance and security, among other reasons.  
-In our case, our goal is to run an application on a local port, which may be blocked by our system's firewall. Add TLS security layer, optionally block malicious requests or distribute traffic among different applicatons.
+Reverse Proxy is an application which is placed between your application and the internet, act as a middle man. Why would you want to do that, you ask? Well, it turns out that there are _many_ reasons to do so. It increases scalability, helps with performance and security, among other reasons.  
+In our case, goal is to run an application on a local port, which may be blocked by our system's firewall. Add TLS security layer, optionally block malicious requests or distribute traffic among different applicatons.
 
 ## What is TLS?
-As a quick note, I'm by no means a security expert and the following is meant to a very high-level overview of the matter.
+As a quick note, I am by no means a security expert. The following is meant to a very high-level overview of the matter.
 
 TLS (Transport Layer Security) and SSL (Secure Sockets Layer) are often used interchangeably, though they differ with each other in more than one area. But for the sake of this article, we won't go into details and instead, focus on why HTTPS is important.  
 You see, with the good old HTTP protocol, your internet traffic is unencrypted. Meaning that, it's almost trivial for anyone to view your online activities. Needless to say, that's a huge concern and needs to be taken care of immediately.
@@ -70,8 +70,7 @@ Make sure to replace `example.com` with your own address. Check if you have the 
 
 ## Configuration FIle
 
-Getting used to Nginx configuration files take a little time and practice. Most of your `server blocks` config files will 
-end up looking almost identical, with small variations.  
+Getting used to Nginx configuration files take a little time and practice. Most of your server block config files will end up looking almost identical, with small variations.  
 A big gotcha is the trailing semicolon; make sure to always check for it. I have included a sample, take a look:
 
 ```nginx
@@ -130,10 +129,10 @@ Done! If you visit your domain now, you should see your application running.
 
 ## Certificates with Certbot
 
-Not all certificates are free, as they are issued only by a few trusted Certificate Authorities. Clue, [Let's Encrypt](https://letsencrypt.org/) enters!
-By using [Certbot](https://certbot.eff.org/), you can get free and legit certificates for your domains. Catch is they're valid for only mere 3 months, but the good thing is certbot will attempt to renew them whenever they're about to expire. So, no worries there :)
+Not all certificates are free, as they are issued only by a few trusted Certificate Authorities. Cue, [Let's Encrypt](https://letsencrypt.org/) enters!
+By using [Certbot](https://certbot.eff.org/), you can get free and legit certificates for your domains. Catch is they're valid for only 3 months, but the good thing is certbot will attempt to renew them whenever they're about to expire. So, no worries there :)
 
-Now, there are some different versions and installation methods of certbot, but I'll stick to the official guide. Remove any other installations of certbot you have. 
+Now, there are some different versions and installation methods for certbot, but I'll stick to the official guide. Remove any other installations of certbot you have. 
 
 ```bash
 apt remove certbot
