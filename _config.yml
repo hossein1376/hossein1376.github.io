@@ -116,6 +116,12 @@ theme_config:
   copyright:
     start_year: 2023
     end_year:
+  utterances:
+    enabled: true
+    repo: hossein1376.github.io
+    issue_term: pathname
+    label: discussion
+    theme: github-dark-orange
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
