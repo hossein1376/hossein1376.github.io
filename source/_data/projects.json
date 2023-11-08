@@ -1,0 +1,17 @@
+[
+  {
+    "name":"English-Persian Kindle Dictionary",
+    "url":"https://github.com/hossein1376/English-Persian-Kindle-Custom-Dictionary",
+    "desc":"A free dictionary with over 150 thousand words and supports plenty of other languages."
+  },
+  {
+    "name":"Kala",
+    "url":"https://github.com/hossein1376/kala",
+    "desc":"An Online Shop's API Implementation in Go"
+  },
+  {
+    "name":"On This Day",
+    "url":"https://on-this-day.vercel.app/",
+    "desc":"What has happened on this exact day, in all the history?"
+  }
+]
