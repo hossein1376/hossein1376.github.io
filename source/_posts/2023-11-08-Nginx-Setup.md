@@ -79,7 +79,7 @@ server {
     listen [::]:443;
 
     server_name <example.com>;
-        
+
     location / {
         proxy_pass <app_server_address:app_port>;
         proxy_set_header Host $http_host;
@@ -90,15 +90,12 @@ server {
 }
 
 server {
-    if ($host = <example.com>) {
-        return 301 https://$host$request_uri;
-    }
-   server_name <example.com>;
-
     listen 80;
     listen [::]:80;
 
-    return 404;
+    server_name <example.com>;
+
+    return 301 https://$host$request_uri;
 }
 ```
 
@@ -193,7 +190,7 @@ server {
     listen [::]:443 ssl; # <- here as well
 
     server_name <example.com>;
-        
+
     location / {
         proxy_pass <app_server_address:app_port>;
         proxy_set_header Host $http_host;
@@ -201,7 +198,7 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
     }
-    
+
     # these 4 are new!
     ssl_certificate /etc/letsencrypt/live/<example.com>/fullchain.pem
     ssl_certificate_key /etc/letsencrypt/live/<example.com>/privkey.pem
@@ -210,15 +207,12 @@ server {
 }
 
 server {
-    if ($host = <example.com>) {
-        return 301 https://$host$request_uri;
-    }
-   server_name <example.com>;
-
     listen 80;
     listen [::]:80;
 
-    return 404;
+    server_name <example.com>;
+
+    return 301 https://$host$request_uri;
 }
 ```
 
