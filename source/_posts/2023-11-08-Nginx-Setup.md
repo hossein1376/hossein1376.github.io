@@ -179,7 +179,7 @@ Nice. See those two lines with the certificate and key path? Copy them somewhere
 Now, it's time to update our Nginx configuration file.
 
 ```bash
-nano /etc/nginx/sites-avalible/example.com
+nano /etc/nginxsites-available/example.com
 ```
 
 We need to let nginx know that it needs to enforce TLS on port 443, and where to find the certificate and its related config files.
