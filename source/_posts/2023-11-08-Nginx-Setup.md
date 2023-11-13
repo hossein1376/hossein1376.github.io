@@ -46,7 +46,7 @@ After installation, it's highly recommended to start and enable it.
 ```bash
 systemctl enable nginx
 systemctl start nginx
-systemctl enable nginx
+systemctl status nginx
 ```
 
 If you see any error messages, I can think of these possible reasons: 
@@ -138,7 +138,7 @@ apt remove certbot
 To begin, install snap:
 
 ```bash
-apt install snap
+apt install snapd
 ```
 
 Install certbot
