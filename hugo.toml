@@ -1,0 +1,48 @@
+baseURL = 'https://blog.godlynice.ir'
+languageCode = 'en-us'
+title = 'Wonder World'
+theme= "PaperMod"
+disqusShortname = 'godlynice'
+enableRobotsTXT = true
+
+[Params]
+    defaultTheme = 'auto'
+    env = 'production'
+    comments = true
+    ShowReadingTime = true
+    ShowToc = true
+    ShowBreadCrumbs = true
+    ShowPostNavLinks = true
+    ShowCodeCopyButtons = true
+    hideFooter = true
+
+[[menu.main]]
+identifier = "home"
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+identifier = "posts"
+name = "Posts"
+url = "/posts/"
+weight = 2
+
+[[menu.main]]
+identifier = "archives"
+name = "Archives"
+url = "/archives/"
+weight = 3
+
+[[menu.main]]
+identifier = "tags"
+name = "Tags"
+url = "/tags/"
+weight = 4
+
+[[menu.main]]
+identifier = "website"
+name = "Website"
+url = "https://godlynice.ir"
+weight = 5
+
