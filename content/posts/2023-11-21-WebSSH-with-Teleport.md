@@ -14,16 +14,16 @@ There are many solutions for these kinds of situations, what I'm going to write 
 To put it simply, you will get a fully working terminal inside your browser. It's still ssh behind the scenes, with some added steps.
 A huge advantage of this approach is the widespread support of browsers everywhere! If your device has a browser,
 It probably can be used for connecting to your servers as well.  
-Looking up online, you can find different applications and libraries providing this service. I suggest search WebSSH online and
+Looking up online, you can find different applications and libraries providing this service. I suggest to search WebSSH online and
 read some about this technology and projects around it.
 
 ## Introducing Teleport
 
-[Teleport](https://goteleport.com/) isn't strictly used for web ssh. It's an open-source project for control and auditing infrastructure.
-Meaning your servers, Kubernetes clusters, running services, databases, and more. It has perineum paid tier with 14-day free trial,
-and a self-managed version with is more than enough for most use-cases.  
+[Teleport](https://goteleport.com/) isn't strictly used for web ssh only. It's an open-source project for control and auditing infrastructure.
+Meaning your servers, Kubernetes clusters, running services, databases, and more. It has a paid tier with 14-day free trial,
+and a self-managed version which is more than enough for most use cases.  
 While I'll focus on the ssh part of its capabilities, I advise you to check its docs and learn more about how it does its services
-and what else you can do with Teleport!
+and what else you can do with Teleport?!
 
 ## Install
 
@@ -39,7 +39,7 @@ so it's more than likely there's a new version at the time you're reading this.
 Check out the [download](https://goteleport.com/download/) page for an up-to-date script link.
 
 Installation takes a few minutes and will need around 500 megabytes of storage, which can be a little too much if you don't have
-space to spare. But in my experience, with all the feature Teleport presents, it is well worth it.
+space to spare. But in my experience, with all the features Teleport presents, it is well worth it.
 
 ## Configuring
 
@@ -49,7 +49,7 @@ Run `teleport configure` to create a configuration file. We will update it right
 sudo nano /etc/teleport/config.yaml
 ```
 
-The following is an example file that needs to be modified first. Four instances between `<...>` needs to be replaced by you.
+The following is an example file that needs to be modified first. Four instances between `<...>` need to be replaced by you.
 
 ```yaml
 version: v3
@@ -86,7 +86,7 @@ proxy_service:
   https_keypairs_reload_interval: 0s
   acme: {}
 ```
-`nodename` is the name that will be displayed inside the `Resources` page.  
+`nodename` is the name that will be displayed on the `Resources` page.  
 `cluster_name` usually is the name of your domain by convention and cannot be changed later.
 `rp_id` and `public_addr` are your domain address that will be used to access Teleport.  
 
@@ -125,12 +125,12 @@ server {
 ```
 
 Get a valid SSL certificate for it as well. Now, your Teleport instance can be accessed from `teleport.domain.com`!  
-It's possible to put the domain behind a CDN as well, for example to hide the server's IP. 
+It's possible to put the domain behind a CDN as well. For example, to hide the server's IP. 
 
 ## Create New User
 
-In this step, we create a new user with username `admin`, allow ssh access to users `root` and `ubuntu`.  
-Make sure to modify this command based on your own preferences.
+In this step, we create a new user with username `admin`, and allow ssh access to users `root` and `ubuntu`.  
+Make sure to modify this command based on your preferences.
 
 ```shell
 sudo tctl users add admin --roles=editor,access --logins=root,ubuntu
@@ -146,10 +146,10 @@ let's move on to the next step.
 
 ## Resources
 
-The current server will be in the `Resources` page, and you can ssh to it using the web interface.
+The current server will be on the `Resources` page, and you can ssh to it using the web interface.
 As you can see, it's a fully functional terminal inside the browser. Magical!
 
-Other servers and resources can easily be added too. Follow the instructions and paste the link into desired servers.
+Other servers and resources can easily be added too. Follow the instructions and paste the link into the desired servers.
 You can rename each service in `config.yaml` file inside that server, `nodename` field.
 If you did that, remember to restart Teleport; both server and client.
 
