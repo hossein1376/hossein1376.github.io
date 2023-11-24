@@ -5,9 +5,9 @@ tags: [ssh, web_ssh, teleport]
 ---
 
 The easiest way to connect to a remote server is using SSH (secure shell). It comes preinstalled on Linux and Mac,
-and the protocol takes care of almost anything. You still need to provide a password or a matching ssh key though.  
+and the protocol takes care of almost anything. Of course, you still need to provide a password or a matching ssh key.  
 On the other hand, if you're using Windows or Android, or if you find yourself on another machine, things get challenging.
-There are many solutions for these kinds of situations, what I'm going to talk about today is called WebSSH.
+There are many solutions for these kinds of situations, what I'm going to write about today is called WebSSH.
 
 ## What is WebSSH
 
@@ -19,7 +19,7 @@ read some about this technology and projects around it.
 
 ## Introducing Teleport
 
-[Teleport](https://goteleport.com/) isn't strictly used for web ssh. It's an open-source project for control and audit infrastructure.
+[Teleport](https://goteleport.com/) isn't strictly used for web ssh. It's an open-source project for control and auditing infrastructure.
 Meaning your servers, Kubernetes clusters, running services, databases, and more. It has perineum paid tier with 14-day free trial,
 and a self-managed version with is more than enough for most use-cases.  
 While I'll focus on the ssh part of its capabilities, I advise you to check its docs and learn more about how it does its services
@@ -35,7 +35,7 @@ curl https://goteleport.com/static/install.sh | bash -s 14.2.0
 ### Note
 
 At the time of writing this article, the latest version is `14.2`. Teleport has fast release cycles and addresses vulnerabilities quickly,
-so it's more than likely there's a new version as the time you're reading this.  
+so it's more than likely there's a new version at the time you're reading this.  
 Check out the [download](https://goteleport.com/download/) page for an up-to-date script link.
 
 Installation takes a few minutes and will need around 500 megabytes of storage, which can be a little too much if you don't have
@@ -43,13 +43,13 @@ space to spare. But in my experience, with all the feature Teleport presents, it
 
 ## Configuring
 
-Run `teleport configure` to create a configuration file. We will update it
+Run `teleport configure` to create a configuration file. We will update it right away:
 
 ```shell
 sudo nano /etc/teleport/config.yaml
 ```
 
-The following is an example file that you need to modify before using. Four instances between `<...>` needs to be replaced by you.
+The following is an example file that needs to be modified first. Four instances between `<...>` needs to be replaced by you.
 
 ```yaml
 version: v3
@@ -87,10 +87,10 @@ proxy_service:
   acme: {}
 ```
 `nodename` is the name that will be displayed inside the `Resources` page.  
-`cluster_name` cannot be changed later and usually is the name of your domain by convention.
+`cluster_name` usually is the name of your domain by convention and cannot be changed later.
 `rp_id` and `public_addr` are your domain address that will be used to access Teleport.  
 
-Save the file, start and enable the Teleport service,
+Save the file, then start and enable the Teleport service.
 
 ```shell
 sudo systemctl enable teleport
@@ -103,7 +103,7 @@ You can view its logs with:
 sudo journalctl -fu teleport
 ```
 
-It takes a few seconds to completely boot up.
+It may take a few seconds for it to completely boot up.
 
 ## Domain
 
@@ -125,23 +125,24 @@ server {
 ```
 
 Get a valid SSL certificate for it as well. Now, your Teleport instance can be accessed from `teleport.domain.com`!  
-You can put the domain behind a CDN as well if you would like to.
+It's possible to put the domain behind a CDN as well, for example to hide the server's IP. 
 
 ## Create New User
 
 In this step, we create a new user with username `admin`, allow ssh access to users `root` and `ubuntu`.  
-Modify this command based on your own preferences.
+Make sure to modify this command based on your own preferences.
 
 ```shell
 sudo tctl users add admin --roles=editor,access --logins=root,ubuntu
 ```
 
-You will get a link for signup. Open it in a browser and complete the registration.
+A link will show up for signing up. Open it in a browser and complete the registration process.
 Teleport enforces the use of two-factor authentication by default and I completely support this. 
-If someone gets access to your account, they'll have **full control** over everything! Better safe than sorry.
+If someone gets access to your account, they'll have **full control** over everything! Better safe than sorry. 
+While it's possible to disable 2FA, I strongly advise against it.  
 
-While it's possible to disable 2FA, I strongly advise against it.
-Define new users with different roles and access level in the same manner.
+Define new users with different roles and access level in the same manner. When you're reading,
+let's move on to the next step. 
 
 ## Resources
 
@@ -149,7 +150,8 @@ The current server will be in the `Resources` page, and you can ssh to it using 
 As you can see, it's a fully functional terminal inside the browser. Magical!
 
 Other servers and resources can easily be added too. Follow the instructions and paste the link into desired servers.
-You can rename each service in `config.yaml` file, `nodename` field. Remember to restart Teleport, both server and client.
+You can rename each service in `config.yaml` file inside that server, `nodename` field.
+If you did that, remember to restart Teleport; both server and client.
 
 ```shell
 sudo systemctl restart teleport
@@ -157,8 +159,8 @@ sudo systemctl restart teleport
 
 ## More features
 
-As I previously mentioned, you can access control almost all of your infrastructures using Teleport.
-Also, create new users with varying roles and access level. List ssh sessions and even replay them like watching YouTube video.
+As I previously mentioned, you can access and control almost all of your infrastructures using Teleport.
+Also, create new users with varying roles and access level. List ssh sessions and even replay them like watching YouTube videos!
 Join ongoing sessions as a collaborator or observer and much, much more.  
 
 I leave it to you to explore more functionality and use-cases.
@@ -169,6 +171,6 @@ In this article, we learned about an exciting open-source project called Telepor
 with our knowledge of Nginx and Certbot, with served it behind a reverse proxy and a TLS. With the possibility of using CDN.
 We successfully connected to our server via a web interface, also added other servers and configured them as well.
 
-Hopefully, this all comes handy to you, dear reader. As always, let me know what you think and I hope you had fun!
+Hopefully, this all comes handy to you. As always, let me know what you think and I hope you had fun as much as I had!
 
 Cheers, Hossein.
