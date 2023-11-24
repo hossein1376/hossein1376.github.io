@@ -4,26 +4,26 @@ date: 2023-11-21T23:19:51+03:30
 tags: [ssh, web_ssh, teleport]
 ---
 
-The easiest way to connect to a remote server is using SSH (secure shell). It comes preinstalled on Linux and Mac,
+The conventional way to connect to a remote server is through SSH (secure shell). It comes preinstalled on Linux and Mac,
 and the protocol takes care of almost anything. Of course, you still need to provide a password or a matching ssh key.  
-On the other hand, if you're using Windows or Android, or if you find yourself on another machine, things get challenging.
-There are many solutions for these kinds of situations, what I'm going to write about today is called WebSSH.
+On the other hand, if you're using Windows or Android, or if you find yourself on another machine, things may get challenging.
+There are many solutions for these kinds of situations. What I'm going to write about today, is called WebSSH.
 
-## What is WebSSH
+## What is WebSSH?
 
-To put it simply, you will get a fully working terminal inside your browser. It's still ssh behind the scenes, with some added steps.
+To put it simply, you will get a fully working terminal inside your browser. It's still SSH behind the scenes, with some added steps.
 A huge advantage of this approach is the widespread support of browsers everywhere! If your device has a browser,
 It probably can be used for connecting to your servers as well.  
-Looking up online, you can find different applications and libraries providing this service. I suggest to search WebSSH online and
-read some about this technology and projects around it.
+Looking up online, you can find variety of different applications and libraries providing it.
+I suggest to search WebSSH online and read some about this technology and projects around it.
 
 ## Introducing Teleport
 
-[Teleport](https://goteleport.com/) isn't strictly used for web ssh only. It's an open-source project for control and auditing infrastructure.
-Meaning your servers, Kubernetes clusters, running services, databases, and more. It has a paid tier with 14-day free trial,
+[Teleport](https://goteleport.com/) isn't strictly used for web ssh. It's an open-source project for control and auditing infrastructure.
+That means servers, Kubernetes clusters, running services, databases, and more. It has a paid tier with 14-day free trial,
 and a self-managed version which is more than enough for most use cases.  
-While I'll focus on the ssh part of its capabilities, I advise you to check its docs and learn more about how it does its services
-and what else you can do with Teleport?!
+While I will focus on the SSH-tunnel feature, I advise you to check the [docs](https://goteleport.com/how-it-works/) and learn more about how it does its services
+and what else you can do with Teleport.
 
 ## Install
 
@@ -39,7 +39,7 @@ so it's more than likely there's a new version at the time you're reading this.
 Check out the [download](https://goteleport.com/download/) page for an up-to-date script link.
 
 Installation takes a few minutes and will need around 500 megabytes of storage, which can be a little too much if you don't have
-space to spare. But in my experience, with all the features Teleport presents, it is well worth it.
+much space to spare. But in my experience, with all the features Teleport presents, it is well worth it.
 
 ## Configuring
 
@@ -54,7 +54,7 @@ The following is an example file that needs to be modified first. Four instances
 ```yaml
 version: v3
 teleport:
-  nodename: <Name>
+  nodename: <name>
   data_dir: /var/lib/teleport
   log:
     output: stderr
@@ -65,7 +65,7 @@ teleport:
   diag_addr: ""
 auth_service:
   enabled: "yes"
-  cluster_name: "<Cluster Name>"
+  cluster_name: "<cluster name>"
   listen_addr: 0.0.0.0:3025
   proxy_listener_mode: multiplex
   authentication:
@@ -87,7 +87,7 @@ proxy_service:
   acme: {}
 ```
 `nodename` is the name that will be displayed on the `Resources` page.  
-`cluster_name` usually is the name of your domain by convention and cannot be changed later.
+`cluster_name` usually is the name of your domain by convention and cannot be changed later.  
 `rp_id` and `public_addr` are your domain address that will be used to access Teleport.  
 
 Save the file, then start and enable the Teleport service.
@@ -107,7 +107,7 @@ It may take a few seconds for it to completely boot up.
 
 ## Domain
 
-I have previously written about Nginx and SSL certificate, you can [read it here](https://blog.godlynice.ir/posts/2023-11-08-nginx-setup/).  
+I have previously written about Nginx and SSL certificate, you can [read about it here](https://blog.godlynice.ir/posts/2023-11-08-nginx-setup/).  
 I assume you have a domain, like `teleport.domain.com`, pointing to the current server address. Nginx config file will look like this:
 
 ```nginx
@@ -130,28 +130,30 @@ It's possible to put the domain behind a CDN as well. For example, to hide the s
 ## Create New User
 
 In this step, we create a new user with username `admin`, and allow ssh access to users `root` and `ubuntu`.  
-Make sure to modify this command based on your preferences.
+Make sure to modify this command based on your needs and preferences.
 
 ```shell
 sudo tctl users add admin --roles=editor,access --logins=root,ubuntu
 ```
 
-A link will show up for signing up. Open it in a browser and complete the registration process.
+A link will show up for signing up. Open it in a browser and complete the registration process.  
+
 Teleport enforces the use of two-factor authentication by default and I completely support this. 
-If someone gets access to your account, they'll have **full control** over everything! Better safe than sorry. 
+If someone gets access to your account, they will have **full control** over everything! Better safe than sorry. 
 While it's possible to disable 2FA, I strongly advise against it.  
 
-Define new users with different roles and access level in the same manner. When you're reading,
+Define new users with different roles and access level in the same manner. When you're ready,
 let's move on to the next step. 
 
 ## Resources
 
-The current server will be on the `Resources` page, and you can ssh to it using the web interface.
+The current server will be on the `Resources` page, and you can SSH to it using the web interface.
 As you can see, it's a fully functional terminal inside the browser. Magical!
 
-Other servers and resources can easily be added too. Follow the instructions and paste the link into the desired servers.
-You can rename each service in `config.yaml` file inside that server, `nodename` field.
-If you did that, remember to restart Teleport; both server and client.
+Other servers and resources can easily be added too. For example, follow the instructions for adding a new server, 
+and paste the link generated by Teleport into the desired servers.  
+You can rename each service in `config.yaml` file inside that server, with `nodename` field.
+If you did that, remember to restart Teleport; both server and client. Otherwise, you may encounter some wierd bugs :)
 
 ```shell
 sudo systemctl restart teleport
@@ -160,15 +162,15 @@ sudo systemctl restart teleport
 ## More features
 
 As I previously mentioned, you can access and control almost all of your infrastructures using Teleport.
-Also, create new users with varying roles and access level. List ssh sessions and even replay them like watching YouTube videos!
+Also, create new users with varying roles and access level. List previous SSH sessions and even replay them like watching a YouTube video!
 Join ongoing sessions as a collaborator or observer and much, much more.  
 
-I leave it to you to explore more functionality and use-cases.
+I leave it up to you to explore more functionality and use-cases.
 
 ## Conclusion
 
-In this article, we learned about an exciting open-source project called Teleport. Installed and configured it,
-with our knowledge of Nginx and Certbot, with served it behind a reverse proxy and a TLS. With the possibility of using CDN.
+In this article, we learned about an exciting open-source project called Teleport. Installed and configured it; and
+with our knowledge of Nginx and Certbot served it behind a reverse proxy and a TLS. With the possibility of using CDN.  
 We successfully connected to our server via a web interface, also added other servers and configured them as well.
 
 Hopefully, this all comes handy to you. As always, let me know what you think and I hope you had fun as much as I had!
