@@ -255,6 +255,71 @@ How do these components work together?
 - Explain how Prometheus supports scraping metrics from various sources, and how it can be configured to monitor different types of services.
 - What are some best practices for optimizing the performance and reliability of Prometheus in a production environment?
 
+## Clean Architecture
+
+- What is Clean Architecture, and what are its core principles?
+- Explain the concept of Dependency Rule in Clean Architecture. How does it contribute to the flexibility and maintainability of the codebase?
+- Describe the layers in Clean Architecture. What are the responsibilities of each layer, and how do they interact?
+- Discuss the significance of the Entity, Use Case (Interactor), and Interface Adapters layers in Clean Architecture. How do they contribute to the design?
+- How does Clean Architecture address the dependency inversion principle? Why is it crucial for creating loosely coupled components?
+- Explain the role of the Frameworks and Drivers layer in Clean Architecture. How does it allow the application to be independent of external tools and frameworks?
+- What is the difference between business rules and application logic in the context of Clean Architecture? How are they separated in the design?
+- How does Clean Architecture support testability? Discuss the ease of writing unit tests for components in each layer.
+- Discuss the concept of "plugins" or "interfaces" in Clean Architecture. How can external components be integrated without affecting the core business logic?
+- Explain the concept of Use Cases in Clean Architecture. How are they defined, and what role do they play in orchestrating the flow of data and interactions?
+- How does Clean Architecture support the development of applications that can easily adapt to changing requirements or technological advancements?
+- Discuss the challenges or trade-offs that developers might face when implementing Clean Architecture in a real-world project.
+- What role does the Presenter (or ViewModel) play in Clean Architecture, especially in the context of user interfaces and interactions?
+
+## Domain-Driven-Design
+
+- Explain the core concept of a "domain" in DDD. How does DDD encourage collaboration between domain experts and developers?
+- What is the importance of a ubiquitous language in the context of DDD? How does it contribute to effective communication between technical and non-technical stakeholders?
+- Define the concept of Bounded Context in DDD. How does it help manage the complexity of large software systems?
+- Discuss the relationship between Bounded Contexts and how they enable different models within the same system.
+- Differentiate between Entities and Value Objects in DDD. Provide examples of each and discuss when to use them.
+- Explain the characteristics of an Entity, including identity and mutability. How does an Entity differ from a simple data structure?
+- Discuss the characteristics of a Value Object. How are they used to represent immutable, interchangeable elements of the domain?
+- Define Aggregates in DDD. What role do they play in ensuring consistency and transactional boundaries within the domain?
+- Explain the concept of an Aggregate Root. Why is it crucial for maintaining the integrity of the aggregate?
+- What are Domain Services in DDD, and when should they be used? Provide examples of scenarios where Domain Services are beneficial.
+- Discuss the relationship between Domain Services and Entities or Value Objects. How do they collaborate to fulfill domain logic?
+- Explain the purpose of Repositories in DDD. How do they provide a way to access and persist aggregates within the domain?
+- Discuss the difference between a Repository and a traditional data access layer. How does a Repository fit into the DDD architecture?
+- What is Event Storming, and how can it be used in the initial phases of a DDD project to discover and model domain events?
+- Discuss the benefits of using Event Storming as a collaborative modeling technique. How does it help build a shared understanding of the domain?
+- Define the Anti-Corruption Layer in the context of DDD. How does it help maintain consistency when integrating different Bounded Contexts?
+- Discuss the challenges and strategies for implementing an Anti-Corruption Layer in a software system.
+
+## CQRS
+
+- What is CQRS (Command Query Responsibility Segregation), and what problem does it address in software architecture?
+- Explain the core principles of CQRS, particularly the separation of commands and queries. How does it contribute to system design?
+- Differentiate between commands and queries in the context of CQRS. How are they handled differently in terms of processing and data retrieval?
+- Discuss the reasons behind segregating commands and queries. How does it impact the scalability and performance of a system?
+- Explain how commands are handled in a CQRS architecture. What happens when a command is received, and how is it processed to update the system state?
+- Discuss the role of command handlers and how they interact with the domain model to execute business logic.
+- How are queries handled in a CQRS architecture? Describe the process of retrieving data for read operations.
+- Discuss the role of query handlers and how they interact with read models or projections to serve query requests.
+- Define Event Sourcing in the context of CQRS. How does it differ from traditional database approaches for storing state?
+- Explain the concept of events and aggregates in the context of Event Sourcing. How are events used to reconstruct the state of an entity?
+- How are events generated and handled in a CQRS and Event Sourcing system? Discuss the relationship between events and their impact on read and write models.
+- Explain the role of event handlers in updating read models or projections. How are events used to keep the read side of the system consistent?
+- Discuss the challenges and strategies for maintaining consistency between the write and read sides in a CQRS architecture.
+- How does eventual consistency play a role in CQRS, especially in distributed systems?
+- Discuss the benefits of adopting CQRS in a software system. In what scenarios does CQRS offer advantages over a traditional monolithic architecture?
+- What are some potential drawbacks or challenges associated with implementing CQRS? How can these challenges be mitigated?
+- Discuss the relationship between CQRS and messaging patterns, such as publish-subscribe or message queues. How do these patterns enhance the scalability and decoupling of a CQRS system?
+
+## SOLID
+
+- What is the Single Responsibility Principle (SRP), and how does it guide the design of software components?
+- Define the Open/Closed Principle (OCP). How does it promote extensibility without modifying existing code?
+- Explain the Liskov Substitution Principle (LSP). How does it ensure that derived classes can be used interchangeably with their base classes without affecting the correctness of the program?
+- Define the Interface Segregation Principle (ISP). How does it advocate for smaller, specific interfaces rather than large, monolithic ones?
+- Explain the Dependency Inversion Principle (DIP). How does it promote decoupling between high-level modules and low-level details?
+- What challenges might developers face when trying to adhere to SOLID principles, and how can these challenges be addressed?
+
 ## Last Words
 
 So many questions. Too many, in fact. Your purpose shouldn't be to cover them all in one go.  
