@@ -12,7 +12,7 @@ Join me as we dig deeper into configuring a docker private registry and also how
 ## Nginx
 
 We're going to use Nginx as a reverse proxy and to secure our registry with an SSL certificate.
-If all this sounds unfamiliar to you, I advise you to check out my other post, [Nginx Setup, Reverse Proxy and TLS (SSL)](https://blog.godlynice.ir/2023/11/08/2023-11-08-Nginx-Setup/). 
+If all this sounds unfamiliar to you, I advise you to check out my other post, [Nginx Setup, Reverse Proxy and TLS (SSL)](https://blog.godlynice.ir/posts/2023-11-08-nginx-setup/). 
 
 ## Docker
 
@@ -114,7 +114,7 @@ server {
 }
 ```
 
-You might want to tweak Nginx settings to allow for higher upload size limit. Open up:
+Optionally, you might want to tweak Nginx settings to allow for higher upload size limit. Open up:
 
 ```shell
 nano /etc/nginx/nginx.conf
