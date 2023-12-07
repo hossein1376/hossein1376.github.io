@@ -67,7 +67,7 @@ Here's a Nginx sample config file:
 ```nginx
 server {
     listen 443 ssl http2;
-    server_name <client.example.ir>;
+    server_name <client.example.com>;
 
     location / {
         proxy_pass http://127.0.0.1:8080;

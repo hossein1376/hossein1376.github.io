@@ -177,7 +177,8 @@ ln -s /snap/bin/certbot /usr/bin/certbot
 
 ### Note
 
-It may be possible for certbot to integrate nicely with Nginx, reading server configs and even automatically update configuration files for you.
+It may be possible for certbot to integrate nicely with Nginx, 
+reading server configs and even automatically update configuration files for you; simply by running `certbot` command.
 While it's much more convenient, it's totally possible for it not to work. For the sake of this article,
 I assumed you need to update the configurations manually.
 
@@ -208,7 +209,7 @@ Copy them somewhere handy as we will reference them every time we want to use ce
 Now, it's time to update our Nginx configuration file.
 
 ```bash
-nano /etc/nginxsites-available/example.com
+nano /etc/nginx/sites-available/example.com
 ```
 
 We need to let nginx know that it needs to enforce TLS on port 443, and where to find the certificate and its related config files.
