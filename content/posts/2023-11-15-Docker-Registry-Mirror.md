@@ -9,10 +9,12 @@ Or rather, have you ever faced issues pulling images directly from DockerHub?
 What if I tell you, you can have all that, and it's really easy to configure it?
 Join me as we dig deeper into configuring a docker private registry and also how to use it as a cache-through proxy.
 
+![Docker-Registry Logo](/logos/docker-registry.webp "Docker-Registry Logo")
+
 ## Nginx
 
 We're going to use Nginx as a reverse proxy and to secure our registry with an SSL certificate.
-If all this sounds unfamiliar to you, I advise you to check out my other post, [Nginx Setup, Reverse Proxy and TLS (SSL)](https://blog.godlynice.ir/posts/2023-11-08-nginx-setup/). 
+If all this sounds unfamiliar to you, I advise you to check out my other post, [Nginx Setup, Reverse Proxy and TLS (SSL)](/posts/2023-11-08-nginx-setup/). 
 
 ## Docker
 

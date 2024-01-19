@@ -18,6 +18,7 @@ My thinking is: gain easy, lose easy. You need to know these questions and their
 In my experience, the best approach is for you to go in some trouble into finding answers.
 Search online, ask your coworkers, reflect on your response, write down your points and remarks.
 
+![Go Programming Language Logo](/logos/go.png "Go Programming Language Logo")
 
 ## Go
 

@@ -9,6 +9,8 @@ how to use it to serve up our application.
 I assume you have a Linux server with root access, some knowledge with the Terminal, 
 a domain you own and an application that is already running inside VPS.
 
+![Nginx Logo](/logos/nginx.png "Nginx Logo")
+
 ## What is Nginx
 
 [Nginx](https://www.nginx.com) is a widely used web server which can act as load-balancer, reverse proxy, HTTP cache, mail server and much more.

@@ -7,9 +7,12 @@ tags: [security, ssh, linux]
 I don't think there are any reasons for me to lecture about the importance of online security; it's public knowledge how
 crucial it is. Managing a VPS requires taking multiple security measures to be sure about safety of your infrastructure
 and data.  
+and data.  
 
 I'm planning a series where I talk about different security layers, meant to be stacked over each other. In this one, 
 we're going to start from ground up and set up the basic minimum and the essential settings.
+
+![SSH Logo](/logos/ssh.png "SSH Logo")
 
 ## Firewall
 

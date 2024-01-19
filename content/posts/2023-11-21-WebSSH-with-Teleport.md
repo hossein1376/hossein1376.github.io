@@ -9,6 +9,8 @@ and the protocol takes care of almost anything. Of course, you still need to pro
 On the other hand, if you're using Windows or Android, or if you find yourself on another machine, things may get challenging.
 There are many solutions for these kinds of situations. What I'm going to write about today, is called WebSSH.
 
+![Teleport Logo](/logos/teleport.jpg "Teleport Logo")
+
 ## What is WebSSH?
 
 To put it simply, you will get a fully working terminal inside your browser. It's still SSH behind the scenes, with some added steps.

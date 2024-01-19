@@ -9,6 +9,8 @@ But have you ever wondered if you can browse the web using your VPS? And I don't
 Having an on-call browse on your personal server sounds like a thrilling idea, and it really is!  
 Let's get into how to have a remote browser, inside another browser :)
 
+![Neko Logo](/logos/neko.png "Neko Logo")
+
 ## Docker
 
 We're going to use Docker, as it allows running applications without us worrying about dependencies or conflicts. 
