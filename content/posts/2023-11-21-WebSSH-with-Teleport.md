@@ -109,7 +109,7 @@ It may take a few seconds for it to completely boot up.
 
 ## Domain
 
-I have previously written about Nginx and SSL certificate, you can [read about it here](https://blog.godlynice.ir/posts/2023-11-08-nginx-setup/).  
+I have previously written about Nginx and SSL certificate, you can [read about it here](/posts/2023-11-08-nginx-setup/).  
 I assume you have a domain, like `teleport.domain.com`, pointing to the current server address. Nginx config file will look like this:
 
 ```nginx

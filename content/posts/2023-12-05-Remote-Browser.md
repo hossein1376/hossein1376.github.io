@@ -63,7 +63,7 @@ next step.
 ## Nginx
 
 It's essential to secure our online activity, so we're going to use Nginx to handle the reverse proxy and SSL certificates. 
-If all this sounds unfamiliar to you, check out my post: [Nginx Setup, Reverse Proxy and TLS (SSL)](https://blog.godlynice.ir/posts/2023-11-08-nginx-setup/).
+If all this sounds unfamiliar to you, check out my post: [Nginx Setup, Reverse Proxy and TLS (SSL)](/posts/2023-11-08-nginx-setup/).
 
 Here's a Nginx sample config file:
 ```nginx
