@@ -1,12 +1,11 @@
 ---
-title: SSH Security - Part 1
+title: 'SSH Security - Part 1: Settings'
 date: 2024-01-19T10:46:03+03:30
 tags: [security, ssh, linux]
 ---
 
 I don't think there are any reasons for me to lecture about the importance of online security; it's public knowledge how
 crucial it is. Managing a VPS requires taking multiple security measures to be sure about safety of your infrastructure
-and data.  
 and data.  
 
 I'm planning a series where I talk about different security layers, meant to be stacked over each other. In this one, 
@@ -18,13 +17,13 @@ we're going to start from ground up and set up the basic minimum and the essenti
 
 By default, all the ports (there are 65,535 of them) are open and accessible by the public. You can think of ports as
 gateways, _or doors_, which are used to communicate data between services. Both local and online.  
-The common sense is to close them and allow only a few trusted individuals from some ports. Firewalls do exactly
+The common sense is to close them and allow only a few trusted individuals from handful of ports. Firewalls do exactly
 that!
 
 Mind you, firewalls can be quite complex and not so easy to work with, especially for those of us who aren't an IT
 expert. That's why `ufw` is so amazing. It stands for 'uncomplicated fire wall' and it allows us to manage the underlying
-system's firewall with just a few commands. `ufw` is very popular choice and is included by default in some distros,
-and can be installed from the official repository otherwise.  
+system's firewall with just a few commands. `ufw` is a very popular choice and is included by default in some distros,
+and can be installed from the official repositories in others.  
 Run `apt install ufw` or the equivalent for the installation.
 
 Now, if you run `ufw status` you'll be notified that it's not enabled yet. Go ahead and activate it by `ufw enable`.  
@@ -69,5 +68,5 @@ clever)
 Firewall selectively allows some of the incoming requests. With ssh keys, the need for memorizing and typing passwords
 are removed. By modifying `sshd` settings, we reduce chance of SSH breaches.
 
-We barely have scratched the surface yet. Still, with the settings we did, our server is in a much better security state. 
+We have barely scratched the surface yet. Still, with the settings we did, our server is in a much better security state. 
 In the next steps, I'm going to introduce two Intrusion Prevention System (IPS) to ban more persistent attempts.
